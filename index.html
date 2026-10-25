@@ -1,5 +1,6 @@
 <title>Agente Secreto</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='24' fill='%23ECEEF1'/><polygon points='60,18.75 97.5,39.375 97.5,80.625 60,101.25 22.5,80.625 22.5,39.375' fill='%2314171C'/><path d='M28 60C28 60 41 40 60 40C79 40 92 60 92 60C92 60 79 80 60 80C41 80 28 60 28 60Z' fill='none' stroke='%23ECEEF1' stroke-width='4'/><circle cx='60' cy='60' r='9' fill='%23ECEEF1'/><circle cx='60' cy='60' r='3' fill='%23B3261E'/></svg>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* Concepto: expediente. Gris diplomático, barras de censura negras y un único rojo para sellos (condecoraciones y casos cerrados). */
@@ -401,7 +402,10 @@ var ICONS={
   calendar:'<rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
   today:'<circle cx="12" cy="12" r="4"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/>',
   profile:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.6 3.4-5.5 7-5.5s6.4 1.9 7 5.5"/>',
-  chev:'<path d="M7 10l5 5 5-5"/>'
+  chev:'<path d="M7 10l5 5 5-5"/>',
+  lupa:'<circle cx="10" cy="10" r="6.5"/><path d="M14.8 14.8L20.5 20.5"/>',
+  carpeta:'<path d="M3.5 7.3c0-1 .8-1.8 1.8-1.8h3.9l1.7 2.1h7.8c1 0 1.8.8 1.8 1.8v8.3c0 1-.8 1.8-1.8 1.8H5.3c-1 0-1.8-.8-1.8-1.8z"/>',
+  carnet:'<rect x="3" y="5.5" width="18" height="13" rx="2.2"/><circle cx="8.4" cy="11" r="2.1"/><path d="M5.6 15.3c.3-1.7 1.4-2.5 2.8-2.5s2.5.8 2.8 2.5M12.8 9.3h6M12.8 12.3h4.3"/>'
 };
 function icon(name,size){size=size||22;return '<svg viewBox="0 0 24 24" width="'+size+'" height="'+size+'" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[name]+'</svg>';}
 
@@ -905,7 +909,7 @@ async function exportData(){
 }
 
 /* ---------- navegación y render ---------- */
-var TABS=[['hoy','Hoy','today'],['hip','Casos','branch'],['perfil','Perfil','profile']];
+var TABS=[['hoy','Hoy','lupa'],['hip','Casos','carpeta'],['perfil','Perfil','carnet']];
 function go(k){S.tab=k;S.open=null;S.confirm=null;render();window.scrollTo(0,0);}
 function renderTabs(){
   var openCount=Object.keys(S.hyps).filter(function(k){return S.hyps[k].status!=='resolved';}).length;
